@@ -41,6 +41,7 @@ class ApiRepositoryTest {
                 assertThat(it.data).isInstanceOf(SearchData::class.java)
                 assertThat((it.data as SearchData).shortUsers).isNotEmpty()
             }
+            else -> {}
         }
     }
 
@@ -57,6 +58,7 @@ class ApiRepositoryTest {
                 assertThat(it.data).isInstanceOf(User::class.java)
                 assertThat((it.data as User).id).isGreaterThan(0)
             }
+            else -> {}
         }
     }
 
@@ -73,6 +75,7 @@ class ApiRepositoryTest {
                 assertThat(it.data).isInstanceOf(List::class.java)
                 assertThat((it.data as List<*>).filterIsInstance(ShortUser::class.java)).isNotEmpty()
             }
+            else -> {}
         }
     }
 
