@@ -1,0 +1,55 @@
+name: Android CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: gradle
+
+    - name: Setup Gradle Dependencies Cache
+      uses: actions/cache@v3.0.2
+      with:
+        path: ~/.gradle/caches
+        key: ${{ runner.os }}-gradle-caches-${{ hashFiles('**/*.gradle', '**/*.gradle.kts') }}
+    - name: Setup Gradle Wrapper Cache
+      uses: actions/cache@v3.0.2
+      with:
+        path: ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-wrapper-${{ hashFiles('**/gradle/wrapper/gradle-wrapper.properties') }}
+    
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+    - name: Cleaning Gradle
+      run: ./gradlew clean
+    - name: Build with Gradle
+      run: ./gradlew build
+      
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.0
+      with:
+        # Artifact name
+        name: apk-debug # optional, default is artifact
+        # A file, directory or wildcard pattern that describes what to upload
+        path: app/build/outputs/apk/debug
+        
+    - name: Upload a Build Lint
+      uses: actions/upload-artifact@v3.1.0
+      with:
+        # Artifact name
+        name: lint-debug # optional, default is artifact
+        # A file, directory or wildcard pattern that describes what to upload
+        path: app/build/reports
