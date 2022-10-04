@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#222222</color>
+    <color name="white">#FFF</color>
+
+
+    <color name="icon_color">#B6B6B6</color>
+
+    <color name="primary_color">#E8E8E8</color>
+    <color name="primary_variant_color">#D3D3D3</color>
+
+    <color name="secondary_color">#2196F3</color>
+    <color name="secondary_variant_color">#1B70B3</color>
+
+    <color name="menu_item_background_color">#25C1C1C1</color>
+    <color name="text_color">#656565</color>
+    <color name="background_color">@color/white</color>
+
+    <color name="shimmer_background_color">#CFCFCF</color>
+
+</resources>

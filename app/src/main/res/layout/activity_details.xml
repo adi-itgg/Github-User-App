@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.DetailsActivity">
+
+    <include
+        android:id="@+id/mainLayout"
+        layout="@layout/activity_details_ui"
+        android:visibility="gone"
+        />
+
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="@dimen/_48sdp"
+        android:layout_height="?actionBarSize"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/icback"
+        android:src="@drawable/ic_round_arrow_back_ios_new_24"
+        app:tint="@color/icon_color"
+        tools:ignore="ImageContrastCheck" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/shimmerLayout"
+            layout="@layout/shimmer_activity_details"
+            />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
