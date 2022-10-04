@@ -18,8 +18,8 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        Properties properties = new Properties()
-        properties.load(project.rootProject.file('local.properties').newDataInputStream())
+//        Properties properties = new Properties()
+//        properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
         buildConfigField "String", "SEARCH_API_URL", "\"https://api.github.com/search/users?q=%s\""
         buildConfigField "String", "USER_API_URL", "\"https://api.github.com/users/%s\""
